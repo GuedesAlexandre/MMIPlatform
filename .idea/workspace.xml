@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ee2e535-a697-4b0e-8317-33ad567eb41c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/BackEnd/MMIPlatform/src/main/java/MMIPlatform/MMIPlatform/MmiPlatformApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/MMIPlatform/src/main/java/MMIPlatform/MMIPlatform/MmiPlatformApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/MMIPlatform/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/MMIPlatform/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +19,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.3.2/bin/php" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2eGyQI9pl62L3d2Z3g7zcyi1h6s" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,8 +31,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Glenn Guillard/Desktop/MMIPlatform",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -50,6 +52,9 @@
       <option name="presentableId" value="Default" />
       <updated>1711545191927</updated>
       <workItem from="1711545195497" duration="159000" />
+      <workItem from="1711547031616" duration="80000" />
+      <workItem from="1711547128131" duration="68000" />
+      <workItem from="1711547213304" duration="61000" />
     </task>
     <servers />
   </component>
