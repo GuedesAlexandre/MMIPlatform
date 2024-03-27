@@ -6,6 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import MMIPlatform.MMIPlatform.Models.IUT;
 import MMIPlatform.MMIPlatform.Models.Promo;
 
@@ -15,17 +18,22 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("User_id")
     private Long User_id;
 
     @Column(name = "Nom", updatable = true, nullable = false)
+    @JsonProperty("Nom")
     private String Nom;
 
     @Column(name = "Prenom", updatable = true, nullable = false)
+    @JsonProperty("Prenom")
     private String Prenom;
     @Column(name = "Email", updatable = true, nullable = false)
+    @JsonProperty("Email")
     private String Email;
 
     @Column(name = "Password", updatable = true, nullable = false)
+    @JsonProperty("Password")
     private String Password;
 
 
@@ -108,5 +116,8 @@ public class User {
 
     public IUT getIut() {
         return iut;
+    }
+    public void setPromo(Promo promo) {
+        this.promo = promo;
     }
 }

@@ -1,13 +1,16 @@
 package MMIPlatform.MMIPlatform.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.*;
 
 @Entity
 public class Promo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int Promo_id;
+    @JsonProperty("Promo_id")
+    private Integer Promo_id;
 
     @Column(name = "Nom", updatable = true, nullable = false)
     private String Nom;
@@ -19,6 +22,7 @@ public class Promo {
     private String Specialite;
     public Promo() {
     }
+    
 
     public int getPromo_id() {
         return Promo_id;

@@ -18,31 +18,38 @@ public class UserServices {
    private UserRepository userRepository;
 
 @Transactional
-    public List<User> getAllUsers() {
-        List<User> users = userRepository.findAll();
-        users.forEach(user -> {
-            user.getUser_id();
-            user.getNom();
-            user.getPrenom();
-            user.getEmail();
-            user.getPassword();
+public List<User> getAllUsers() {
+    List<User> users = userRepository.findAll();
+    users.forEach(user -> {
+        user.getUser_id();
+        user.getNom();
+        user.getPrenom();
+        user.getEmail();
+        user.getPassword();
+        if (user.getPromo() != null) {
             user.getPromo().getPromo_id();
             user.getPromo().getNom();
-           user.getIut().getIUT_id();
-           user.getIut().getNom();
-           user.getTickets().forEach(ticket -> {
-               ticket.getTicket_id();
-               ticket.getNom();
-               ticket.getLangage();
-               ticket.getDescription();
-               ticket.getMatiere();
-               ticket.getImg();
-           });
+        }
+        if (user.getIut() != null) {
+            user.getIut().getIUT_id();
+            user.getIut().getNom();
+        }
+        if (user.getTickets() != null) {
+            user.getTickets().forEach(ticket -> {
+                ticket.getTicket_id();
+                ticket.getNom();
+                ticket.getLangage();
+                ticket.getDescription();
+                ticket.getMatiere();
+                ticket.getImg();
+            });
+        }
+    });
+    logger.info("Fetched {} users from the database", users.size());
+    return users;
+}
 
-        });
-        logger.info("Fetched {} users from the database", users.size());
-        return users;
-    }
+
     @Transactional
     public void saveUser(User user) {
         userRepository.save(user);
