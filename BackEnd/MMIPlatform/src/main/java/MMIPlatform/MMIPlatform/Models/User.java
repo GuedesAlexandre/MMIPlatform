@@ -29,12 +29,21 @@ public class User {
     @Column(name = "Promo", updatable = true, nullable = false)
     private String Promo;
 
-    @ManyToMany
+    @ManyToOne
     @JoinTable(
             name = "Etu_IUT",
             joinColumns = @JoinColumn(name = "User_id"),
             inverseJoinColumns = @JoinColumn(name = "IUT_id"))
-    private List<IUT> IUTs;
+    private IUT iut;
+
+    @ManyToOne
+    @JoinTable(
+            name = "Etu_Promo",
+            joinColumns = @JoinColumn(name = "User_id"),
+            inverseJoinColumns = @JoinColumn(name = "Promo_id"))
+    private Promo promo;
+
+
 
 
 }
