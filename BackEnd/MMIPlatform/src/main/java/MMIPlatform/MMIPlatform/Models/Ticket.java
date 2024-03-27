@@ -30,4 +30,9 @@ public class Ticket {
             joinColumns = @JoinColumn(name = "ticket_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
         private User user;
+
+
+    public Ticket(){}
+
+    
 }

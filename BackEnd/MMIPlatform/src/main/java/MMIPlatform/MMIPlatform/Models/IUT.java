@@ -15,11 +15,11 @@ public class IUT {
     public IUT() {
 
     }
-    public int getIUT_id() {
+    public Long getIUT_id() {
         return IUT_id;
     }
 
-    public void setIUT_id(int IUT_id) {
+    public void setIUT_id(Long IUT_id) {
         this.IUT_id = IUT_id;
     }
 
