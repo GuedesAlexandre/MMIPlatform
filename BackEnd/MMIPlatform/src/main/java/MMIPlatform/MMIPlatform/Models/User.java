@@ -44,11 +44,22 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "Promo_id"))
     private Promo promo;
 
+    @ManyToMany
+    @JoinTable(
+            name = "Etu_Ticket",
+            joinColumns = @JoinColumn(name = "User_id"),
+            inverseJoinColumns = @JoinColumn(name = "Ticket_id"))
+    private List<Ticket> tickets;
+
 
 
 
     public User() {
 
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
     }
 
     public Long getUser_id() {

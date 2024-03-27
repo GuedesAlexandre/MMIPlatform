@@ -24,15 +24,55 @@ public class Ticket {
     @Column(name = "img", nullable = true, updatable = true)
         public String img;
     
-    @ManyToMany
-        @JoinTable(
-            name = "Etu_Ticket",
-            joinColumns = @JoinColumn(name = "ticket_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-        private User user;
 
 
     public Ticket(){}
 
-    
+    public long getTicket_id() {
+        return ticket_id;
+    }
+
+    public void setTicket_id(long ticket_id) {
+        this.ticket_id = ticket_id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getLangage() {
+        return langage;
+    }
+
+    public void setLangage(String langage) {
+        this.langage = langage;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getMatiere() {
+        return matiere;
+    }
+
+    public void setMatiere(String matiere) {
+        this.matiere = matiere;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 }

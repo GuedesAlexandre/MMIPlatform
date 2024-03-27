@@ -30,6 +30,14 @@ public class UserServices {
             user.getPromo().getNom();
            user.getIut().getIUT_id();
            user.getIut().getNom();
+           user.getTickets().forEach(ticket -> {
+               ticket.getTicket_id();
+               ticket.getNom();
+               ticket.getLangage();
+               ticket.getDescription();
+               ticket.getMatiere();
+               ticket.getImg();
+           });
 
         });
         logger.info("Fetched {} users from the database", users.size());
@@ -38,7 +46,8 @@ public class UserServices {
     @Transactional
     public void saveUser(User user) {
         userRepository.save(user);
-        logger.info("Saved user with id {}", user.getUser_id());
+      logger.info("Saved user with id {}", user.getUser_id());
+
     }
 
     public void deleteUser(Long id) {
