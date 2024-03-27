@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.util.List;
+import MMIPlatform.MMIPlatform.Models.IUT;
+import MMIPlatform.MMIPlatform.Models.Promo;
 
 @Entity
 @Table(name="Etudiant")
@@ -89,15 +91,11 @@ public class User {
         Password = password;
     }
 
-    public List<Promo> getPromo() {
-        return List.of(promo);
+    public Promo getPromo() {
+        return promo;
     }
 
-    public List<IUT> getIut() {
-        return List.of(iut);
-    }
-
-    public void setIut(IUT iut) {
-        this.iut = iut;
+    public IUT getIut() {
+        return iut;
     }
 }

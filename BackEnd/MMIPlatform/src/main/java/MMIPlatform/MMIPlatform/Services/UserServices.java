@@ -10,9 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import MMIPlatform.MMIPlatform.Models.IUT;
 
-
-
-
 @Service
 public class UserServices {
     private static final Logger logger = LoggerFactory.getLogger(UserServices.class);
@@ -29,17 +26,10 @@ public class UserServices {
             user.getPrenom();
             user.getEmail();
             user.getPassword();
-            user.getPromo().forEach(promo -> {
-                promo.getPromo_id();
-                promo.getNom();
-                promo.getQuantite();
-                promo.getSpecialite();
-            });
-            user.getIut().forEach(iut -> {
-                iut.getIUT_id();
-                iut.getNom();
-             ;
-            });
+            user.getPromo().getPromo_id();
+            user.getPromo().getNom();
+           user.getIut().getIUT_id();
+           user.getIut().getNom();
 
         });
         logger.info("Fetched {} users from the database", users.size());
