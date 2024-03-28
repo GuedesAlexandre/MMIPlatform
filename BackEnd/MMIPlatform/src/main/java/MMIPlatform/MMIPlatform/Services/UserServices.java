@@ -26,6 +26,7 @@ public List<User> getAllUsers() {
         user.getPrenom();
         user.getEmail();
         user.getPassword();
+        user.getRole();
         if (user.getPromo() != null) {
             user.getPromo().getPromo_id();
             user.getPromo().getNom();

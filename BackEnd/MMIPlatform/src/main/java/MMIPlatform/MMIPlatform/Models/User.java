@@ -1,9 +1,5 @@
 package MMIPlatform.MMIPlatform.Models;
 import jakarta.persistence.*;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 import java.util.List;
 
@@ -13,7 +9,7 @@ import MMIPlatform.MMIPlatform.Models.IUT;
 import MMIPlatform.MMIPlatform.Models.Promo;
 
 @Entity
-@Table(name="Etudiant")
+@Table(name="User")
 public class User {
 
     @Id
@@ -36,6 +32,10 @@ public class User {
     @JsonProperty("Password")
     private String Password;
 
+    @Column(name = "Role", updatable = true, nullable = false)
+    @JsonProperty("Role")
+    private String Role;
+
 
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -45,14 +45,14 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "IUT_id"))
     private IUT iut;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(
             name = "Etu_Promo",
             joinColumns = @JoinColumn(name = "User_id"),
             inverseJoinColumns = @JoinColumn(name = "Promo_id"))
     private Promo promo;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "Etu_Ticket",
             joinColumns = @JoinColumn(name = "User_id"),
@@ -62,8 +62,13 @@ public class User {
 
 
 
+
+
     public User() {
 
+    }
+    public String getRole() {
+        return Role;
     }
 
     public List<Ticket> getTickets() {
@@ -122,5 +127,11 @@ public class User {
     }
     public void setIut(IUT iut) {
         this.iut = iut;
+    }
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+    public void setRole(String role) {
+        this.Role = role;
     }
 }
