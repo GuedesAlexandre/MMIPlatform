@@ -7,7 +7,7 @@ public class IUT {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long IUT_id;
+    private Integer IUT_id;
 
     @Column(name = "Nom", updatable = true, nullable = false)
     private String Nom;
@@ -15,11 +15,11 @@ public class IUT {
     public IUT() {
 
     }
-    public Long getIUT_id() {
+    public Integer getIUT_id() {
         return IUT_id;
     }
 
-    public void setIUT_id(Long IUT_id) {
+    public void setIUT_id(Integer IUT_id) {
         this.IUT_id = IUT_id;
     }
 

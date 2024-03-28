@@ -9,6 +9,8 @@ import MMIPlatform.MMIPlatform.Models.Promo;
 import MMIPlatform.MMIPlatform.Models.User;
 import MMIPlatform.MMIPlatform.Services.UserServices;
 import MMIPlatform.MMIPlatform.Services.promoService;
+import MMIPlatform.MMIPlatform.Models.IUT;
+import MMIPlatform.MMIPlatform.Services.IUTService;
 
 import java.util.List;
 
@@ -19,6 +21,9 @@ public class UserControllers {
 
     @Autowired
     private promoService promoService;
+
+    @Autowired
+    private IUTService iutService;
    
 
     @GetMapping("/users")
@@ -42,6 +47,16 @@ public class UserControllers {
                     return new ResponseEntity<>("Promo with id " + promoId + " not found", HttpStatus.BAD_REQUEST);
                 }
                 user.setPromo(promo);
+            }
+        }
+        if(user.getIut() != null){
+            Integer iut_Id = user.getIut().getIUT_id();
+            if(iut_Id != null){
+                IUT iut = iutService.findById(iut_Id);
+                if(iut == null){
+                    return new ResponseEntity<>("IUT with id " + iut_Id + " not found", HttpStatus.BAD_REQUEST);
+                }
+                user.setIut(iut);
             }
         }
         userService.saveUser(user);

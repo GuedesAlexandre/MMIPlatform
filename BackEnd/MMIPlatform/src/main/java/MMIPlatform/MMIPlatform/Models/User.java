@@ -38,7 +38,7 @@ public class User {
 
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(
             name = "Etu_IUT",
             joinColumns = @JoinColumn(name = "User_id"),
@@ -119,5 +119,8 @@ public class User {
     }
     public void setPromo(Promo promo) {
         this.promo = promo;
+    }
+    public void setIut(IUT iut) {
+        this.iut = iut;
     }
 }
