@@ -1,5 +1,8 @@
 package MMIPlatform.MMIPlatform.Models;
 
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -7,6 +10,8 @@ public class Ticket {
 
     @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
+        @JsonProperty("ticket_id")
+
         private long ticket_id;
     
     @Column(name = "Nom", nullable = false, updatable = true)
@@ -24,7 +29,12 @@ public class Ticket {
     @Column(name = "img", nullable = true, updatable = true)
         public String img;
     
-
+    @ManyToMany(cascade = CascadeType.ALL)
+        @JoinTable(
+                name = "etu_ticket",
+                joinColumns = @JoinColumn(name = "ticket_id"),
+                inverseJoinColumns = @JoinColumn(name = "user_id"))
+        private List<User> User;
 
     public Ticket(){}
 
@@ -74,5 +84,9 @@ public class Ticket {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public List<User> getUsers() {
+        return User;
     }
 }
