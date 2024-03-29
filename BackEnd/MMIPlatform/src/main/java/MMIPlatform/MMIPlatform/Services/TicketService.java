@@ -34,6 +34,16 @@ public class TicketService {
         Tickets.getImg();
         Tickets.getLangage();
         Tickets.getTicket_id();
+        if(Tickets.GetUser() != null){
+            Tickets.GetUser().forEach(MonUser ->{
+                MonUser.getUser_id();
+                MonUser.getNom();
+                MonUser.getPrenom();
+                MonUser.getEmail();
+                MonUser.getPassword();
+                MonUser.getRole();
+            });
+        }
       
     });
 
