@@ -20,4 +20,11 @@ public class TicketController {
             return TicketService.GetAllTicketsWithUsers();
         }
 
+        @PostMapping("/tickets")
+        public Ticket saveTicket(@RequestBody Ticket ticket, @RequestParam Long user_id){
+
+            return TicketService.saveTicket(ticket);
+
+        }
+
 }

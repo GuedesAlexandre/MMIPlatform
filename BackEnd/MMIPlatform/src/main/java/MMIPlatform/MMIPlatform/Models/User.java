@@ -14,29 +14,23 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonProperty("User_id")
+    @JsonProperty("user_id")
     private Long User_id;
 
-    @Column(name = "Nom", updatable = true, nullable = false)
-    @JsonProperty("Nom")
+    @JsonProperty("nom")
     private String Nom;
 
-    @Column(name = "Prenom", updatable = true, nullable = false)
-    @JsonProperty("Prenom")
+    @JsonProperty("prenom")
     private String Prenom;
-    @Column(name = "Email", updatable = true, nullable = false)
-    @JsonProperty("Email")
+
+    @JsonProperty("email")
     private String Email;
 
-    @Column(name = "Password", updatable = true, nullable = false)
-    @JsonProperty("Password")
+    @JsonProperty("password")
     private String Password;
 
-    @Column(name = "Role", updatable = true, nullable = false)
-    @JsonProperty("Role")
+    @JsonProperty("role")
     private String Role;
-
-
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(
@@ -53,12 +47,6 @@ public class User {
     private Promo promo;
 
 
-
-
-
-
-
-
     public User() {
 
     }
@@ -68,7 +56,7 @@ public class User {
 
 
 
-   
+
 
     public Long getUser_id() {
         return User_id;
@@ -128,3 +116,12 @@ public class User {
         this.Role = role;
     }
 }
+
+
+
+
+
+
+
+
+

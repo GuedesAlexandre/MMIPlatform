@@ -24,13 +24,13 @@ public class UserControllers {
 
     @Autowired
     private IUTService iutService;
-   
+
 
     @GetMapping("/users")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
-    
+
     @PostMapping("/save")
     public ResponseEntity<String> saveUser(@RequestBody User user) {
         if (user.getEmail() == null) {
@@ -64,63 +64,63 @@ public class UserControllers {
     }
 
     @DeleteMapping("/delete/{id}")
-public ResponseEntity<String> deleteUser(@PathVariable Long id) {
-    User user = userService.getUserById(id);
-    if (user == null) {
-        return new ResponseEntity<>("User with id " + id + " not found", HttpStatus.BAD_REQUEST);
-    }
-
-    // Supprimer l'association avec la promo et l'IUT
-    user.setPromo(null);
-    user.setIut(null);
-
-    // Sauvegarder l'utilisateur pour mettre à jour les associations
-    userService.saveUser(user);
-
-    // Supprimer l'utilisateur
-    userService.deleteUser(id);
-    return new ResponseEntity<>("User deleted successfully", HttpStatus.OK);
-}
-@PutMapping("/update/{id}")
-public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
-    User user = userService.getUserById(id);
-    if (user == null) {
-        return new ResponseEntity<>("User with id " + id + " not found", HttpStatus.BAD_REQUEST);
-    }
-
-    // Mettre à jour les attributs de l'utilisateur
-    user.setNom(updatedUser.getNom());
-    // Mettre à jour les autres attributs...
-    user.setEmail(updatedUser.getEmail());
-    user.setPassword(updatedUser.getPassword());
-    user.setPrenom(updatedUser.getPrenom());
-    user.setRole(updatedUser.getRole());
-    // Mettre à jour l'association avec la promo
-    if (updatedUser.getPromo() != null) {
-        Promo promo = promoService.findById(updatedUser.getPromo().getPromo_id());
-        if (promo == null) {
-            return new ResponseEntity<>("Promo with id " + updatedUser.getPromo().getPromo_id() + " not found", HttpStatus.BAD_REQUEST);
+    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+        User user = userService.getUserById(id);
+        if (user == null) {
+            return new ResponseEntity<>("User with id " + id + " not found", HttpStatus.BAD_REQUEST);
         }
-        user.setPromo(promo);
-    } else {
+
+        // Supprimer l'association avec la promo et l'IUT
         user.setPromo(null);
-    }
-
-    // Mettre à jour l'association avec l'IUT
-    if (updatedUser.getIut() != null) {
-        IUT iut = iutService.findById(updatedUser.getIut().getIUT_id());
-        if (iut == null) {
-            return new ResponseEntity<>("IUT with id " + updatedUser.getIut().getIUT_id() + " not found", HttpStatus.BAD_REQUEST);
-        }
-        user.setIut(iut);
-    } else {
         user.setIut(null);
+
+        // Sauvegarder l'utilisateur pour mettre à jour les associations
+        userService.saveUser(user);
+
+        // Supprimer l'utilisateur
+        userService.deleteUser(id);
+        return new ResponseEntity<>("User deleted successfully", HttpStatus.OK);
+    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+        User user = userService.getUserById(id);
+        if (user == null) {
+            return new ResponseEntity<>("User with id " + id + " not found", HttpStatus.BAD_REQUEST);
+        }
+
+        // Mettre à jour les attributs de l'utilisateur
+        user.setNom(updatedUser.getNom());
+        // Mettre à jour les autres attributs...
+        user.setEmail(updatedUser.getEmail());
+        user.setPassword(updatedUser.getPassword());
+        user.setPrenom(updatedUser.getPrenom());
+        user.setRole(updatedUser.getRole());
+        // Mettre à jour l'association avec la promo
+        if (updatedUser.getPromo() != null) {
+            Promo promo = promoService.findById(updatedUser.getPromo().getPromo_id());
+            if (promo == null) {
+                return new ResponseEntity<>("Promo with id " + updatedUser.getPromo().getPromo_id() + " not found", HttpStatus.BAD_REQUEST);
+            }
+            user.setPromo(promo);
+        } else {
+            user.setPromo(null);
+        }
+
+        // Mettre à jour l'association avec l'IUT
+        if (updatedUser.getIut() != null) {
+            IUT iut = iutService.findById(updatedUser.getIut().getIUT_id());
+            if (iut == null) {
+                return new ResponseEntity<>("IUT with id " + updatedUser.getIut().getIUT_id() + " not found", HttpStatus.BAD_REQUEST);
+            }
+            user.setIut(iut);
+        } else {
+            user.setIut(null);
+        }
+
+        // Sauvegarder l'utilisateur pour mettre à jour les associations
+        userService.saveUser(user);
+        return new ResponseEntity<>("User updated successfully", HttpStatus.OK);
     }
 
-    // Sauvegarder l'utilisateur pour mettre à jour les associations
-    userService.saveUser(user);
-    return new ResponseEntity<>("User updated successfully", HttpStatus.OK);
-}
-    
-    
+
 }

@@ -9,7 +9,7 @@ import jakarta.persistence.*;
 public class Promo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonProperty("Promo_id")
+
     private Integer Promo_id;
 
     @Column(name = "Nom", updatable = true, nullable = false)
