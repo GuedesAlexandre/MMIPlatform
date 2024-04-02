@@ -37,7 +37,7 @@ public class Ticket {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "etu_ticket",
-            joinColumns = @JoinColumn(name = "ticket_is"),
+            joinColumns = @JoinColumn(name = "ticket_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> Users;
     

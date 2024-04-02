@@ -16,8 +16,8 @@ public class TicketController {
 
 
     @GetMapping("/tickets")
-        public List<Ticket> GetAllTickets(){
-            return TicketService.GetAllTickets();
+        public List<Object> GetAllTickets(){
+            return TicketService.GetAllTicketsWithUsers();
         }
 
 }

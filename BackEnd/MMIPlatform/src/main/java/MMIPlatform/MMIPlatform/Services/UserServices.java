@@ -35,16 +35,7 @@ public List<User> getAllUsers() {
             user.getIut().getIUT_id();
             user.getIut().getNom();
         }
-        if (user.getTickets() != null) {
-            user.getTickets().forEach(ticket -> {
-                ticket.getTicket_id();
-                ticket.getNom();
-                ticket.getLangage();
-                ticket.getDescription();
-                ticket.getMatiere();
-                ticket.getImg();
-            });
-        }
+
     });
     logger.info("Fetched {} users from the database", users.size());
     return users;

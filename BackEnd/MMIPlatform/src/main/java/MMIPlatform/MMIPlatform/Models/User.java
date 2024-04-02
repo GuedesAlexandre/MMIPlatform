@@ -52,12 +52,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "Promo_id"))
     private Promo promo;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "Etu_Ticket",
-            joinColumns = @JoinColumn(name = "User_id"),
-            inverseJoinColumns = @JoinColumn(name = "Ticket_id"))
-    private List<Ticket> tickets;
+
 
 
 
@@ -71,9 +66,9 @@ public class User {
         return Role;
     }
 
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
+
+
+   
 
     public Long getUser_id() {
         return User_id;
@@ -128,9 +123,7 @@ public class User {
     public void setIut(IUT iut) {
         this.iut = iut;
     }
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
-    }
+
     public void setRole(String role) {
         this.Role = role;
     }
